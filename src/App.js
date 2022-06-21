@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Components/Home/Home";
+import Contact from "./Components/Contact/Contact";
+import Service from "./Components/Service/Service";
+import Private from "./Components/Private/Private";
+import Dashboard from "./Components/Private/Dashboard/Dashboard";
+import Footer from "./Components/Footer/Footer";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/services/:title" element={<Service />} />
+				<Route path="/private" element={<Private />}>
+					<Route path="/private/dashboard" element={<Dashboard />} />
+				</Route>
+				<Route path="*" element={<NotFound />} />
+			</Routes>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

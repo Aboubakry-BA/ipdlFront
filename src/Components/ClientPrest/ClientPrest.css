@@ -1,0 +1,52 @@
+#clientPrest {
+  display: flex;
+  width: 95%;
+  margin: 20px auto;
+  justify-content: space-between;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+#clientPrest p {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#client,
+#prest {
+  width: 100%;
+  padding: 15px;
+  min-height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#client {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#prest {
+  color: #fff;
+  background: #00a591;
+}
+
+#client div,
+#prest div {
+  width: 80%;
+}
+
+@media screen and (max-width: 675px) {
+  #clientPrest {
+    flex-direction: column;
+  }
+
+  #client,
+  #prest {
+    margin-bottom: 10px;
+  }
+}

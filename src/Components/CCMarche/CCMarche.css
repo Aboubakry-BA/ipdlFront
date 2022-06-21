@@ -1,0 +1,37 @@
+#titre {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#icon {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+
+.icon {
+  width: 32.5%;
+  text-align: center;
+}
+
+.icon p {
+  color: grey;
+  line-height: 1.5;
+}
+
+.icon h3 {
+  margin: 15px 0;
+}
+
+@media screen and (max-width: 675px) {
+  #icon {
+    flex-direction: column;
+  }
+
+  .icon {
+    width: 95%;
+    margin-bottom: 25px;
+  }
+}

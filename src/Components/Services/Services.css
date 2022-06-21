@@ -1,0 +1,24 @@
+#container {
+	width: 85%;
+	margin: auto;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: #00a591;
+}
+
+h6 {
+	font-size: 13px;
+}
+
+@media screen and (max-width: 675px) {
+	#container {
+		width: 90%;
+	}
+}
