@@ -45,6 +45,9 @@ function Navbar() {
 	};
 
 	let toggleButton;
+	let publierAnnonce;
+	let publierAnnonce2;
+
 	if (currentUser) {
 		toggleButton = (
 			<div id="logout">
@@ -57,6 +60,31 @@ function Navbar() {
 				</IconButton>
 			</div>
 		);
+		publierAnnonce = (
+			<Button
+				onClick={() => navigate("/private/dashboard")}
+				variant="contained"
+				size="large"
+				style={{
+					background: "#00A591",
+					borderRadius: "20px",
+					textTransform: "initial",
+					fontFamily: "Montserrat, sans-serif",
+				}}
+				startIcon={<AddIcon />}
+			>
+				Publier une annonce
+			</Button>
+		);
+		publierAnnonce2 = (
+			<IconButton
+				title="Publier Annonce"
+				onClick={() => navigate("/private/dashboard")}
+				style={{ background: "#00A591", color: "#fff" }}
+			>
+				<AddIcon />
+			</IconButton>
+		);
 	} else {
 		toggleButton = (
 			<IconButton
@@ -65,6 +93,31 @@ function Navbar() {
 				style={{ color: "#00A591" }}
 			>
 				<LoginIcon />
+			</IconButton>
+		);
+		publierAnnonce = (
+			<Button
+				onClick={handleClickOpen}
+				variant="contained"
+				size="large"
+				style={{
+					background: "#00A591",
+					borderRadius: "20px",
+					textTransform: "initial",
+					fontFamily: "Montserrat, sans-serif",
+				}}
+				startIcon={<AddIcon />}
+			>
+				Publier une annonce
+			</Button>
+		);
+		publierAnnonce2 = (
+			<IconButton
+				title="Publier Annonce"
+				onClick={handleClickOpen}
+				style={{ background: "#00A591", color: "#fff" }}
+			>
+				<AddIcon />
 			</IconButton>
 		);
 	}
@@ -113,30 +166,9 @@ function Navbar() {
 			</div>
 			<div id="connexion">
 				{toggleButton}
-				<div id="add1">
-					<Button
-						onClick={handleClickOpen}
-						variant="contained"
-						size="large"
-						style={{
-							background: "#00A591",
-							borderRadius: "20px",
-							textTransform: "initial",
-							fontFamily: "Montserrat, sans-serif",
-						}}
-						startIcon={<AddIcon />}
-					>
-						Publier une annonce
-					</Button>
-				</div>
+				<div id="add1">{publierAnnonce}</div>
 				<div id="add2">
-					<IconButton
-						title="Publier Annonce"
-						onClick={handleClickOpen}
-						style={{ background: "#00A591", color: "#fff" }}
-					>
-						<AddIcon />
-					</IconButton>
+					{publierAnnonce2}
 				</div>
 			</div>
 			<Dialog

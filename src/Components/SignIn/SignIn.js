@@ -30,14 +30,14 @@ export default function SignIn(props) {
 		// 	email: data.get("email"),
 		// 	password: data.get("password"),
 		// });
-		
+
 		try {
-			signin(data.get("email"), data.get("password"));
+			await signin(data.get("email"), data.get("password"));
 			setValidation("Connexion réussie !");
 			formRef.current.reset();
 			navigate("/private/dashboard");
 		} catch {
-			setValidation("Email et/ou mot de passe incorrect(s)");
+			setValidation("Email et/ou mot de passe incorrect(s) !");
 		}
 	};
 
