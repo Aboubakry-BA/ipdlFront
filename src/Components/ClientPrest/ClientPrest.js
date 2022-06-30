@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./ClientPrest.css";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 import Button from "@mui/material/Button";
@@ -10,8 +12,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
 function ClientPrest() {
-	const [open, setOpen] = React.useState(false);
-	const [toggle, setToggle] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [toggle, setToggle] = useState(false);
+
+	const navigate = useNavigate();
+	const { currentUser } = useContext(UserContext);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -26,11 +31,44 @@ function ClientPrest() {
 	};
 
 	let toggleContenu;
+	let toggleInscrire;
 
 	if (toggle) {
 		toggleContenu = <SignIn func={handleToggle} />;
 	} else {
 		toggleContenu = <SignUp func={handleToggle} />;
+	}
+
+	if (!currentUser) {
+		toggleInscrire = (
+			<Button
+				onClick={handleClickOpen}
+				variant="contained"
+				style={{
+					background: "#EF7766",
+					width: "70%",
+					padding: "10px",
+				}}
+				endIcon={<LoginIcon />}
+			>
+				<strong>Je m'inscris</strong>
+			</Button>
+		);
+	} else {
+		toggleInscrire = (
+			<Button
+				onClick={() => navigate("/private/dashboard")}
+				variant="contained"
+				style={{
+					background: "#EF7766",
+					width: "70%",
+					padding: "10px",
+				}}
+				endIcon={<LoginIcon />}
+			>
+				<strong>Je m'inscris</strong>
+			</Button>
+		);
 	}
 
 	return (
@@ -70,18 +108,7 @@ function ClientPrest() {
 						Sénégal. <br /> Je poste mes annonces{" "}
 						<em> GRATUITEMENT</em>.
 					</p>
-					<Button
-						onClick={handleClickOpen}
-						variant="contained"
-						style={{
-							background: "#EF7766",
-							width: "70%",
-							padding: "10px",
-						}}
-						endIcon={<LoginIcon />}
-					>
-						<strong>Je m'inscris</strong>
-					</Button>
+					{toggleInscrire}
 				</div>
 			</div>
 			<Dialog

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
+import PubAnnonce from "../../PubAnnonce/PubAnnonce";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -7,13 +8,12 @@ import Box from "@mui/material/Box";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { mainListItems } from "./listItems";
-const drawerWidth = 200;
+const drawerWidth = 250;
 
 const AppBar = styled(MuiAppBar, {
 	shouldForwardProp: (prop) => prop !== "open",
@@ -87,22 +87,12 @@ function DashboardContent() {
 					</Toolbar>
 				</AppBar>
 				<Drawer variant="permanent" open={open}>
-					<Toolbar
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "flex-end",
-							px: [1],
-						}}
-					>
+					<Toolbar>
 						<IconButton onClick={toggleDrawer}>
 							<ChevronLeftIcon />
 						</IconButton>
 					</Toolbar>
-					<List component="div">
-						{mainListItems}
-						<Divider sx={{ my: 1 }} />
-					</List>
+					<List component="div">{mainListItems}</List>
 				</Drawer>
 				<Box
 					component="main"
@@ -117,7 +107,9 @@ function DashboardContent() {
 					}}
 				>
 					<Toolbar />
-					<Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}></Container>
+					<Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+						<PubAnnonce />
+					</Container>
 				</Box>
 			</Box>
 		</ThemeProvider>

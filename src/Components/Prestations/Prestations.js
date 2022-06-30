@@ -1,13 +1,13 @@
 import React from "react";
-import "./Services.css";
+import "./Prestations.css";
 import Grid from "@mui/material/Grid";
 import { /*Link,*/ NavLink } from "react-router-dom";
 
-function Services() {
+function Prestations() {
 	return (
 		<>
 			<div id="container">
-				<h3>Les Services: Que cherchez vous ?</h3>
+				<h3>Les Prestations: Que cherchez vous ?</h3>
 				<Grid container spacing={1}>
 					{services.map((service) => (
 						<Grid
@@ -32,7 +32,7 @@ function Services() {
 								},
 							}}
 						>
-							<NavLink to={`/services/${service.title}`}>
+							<NavLink to={`/prestation/${service.title}`}>
 								<img
 									src={service.img}
 									alt={service.title}
@@ -115,4 +115,4 @@ const services = [
 	},
 ];
 
-export default Services;
+export default Prestations;

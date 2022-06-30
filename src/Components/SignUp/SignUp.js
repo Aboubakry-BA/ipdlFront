@@ -1,6 +1,7 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, /*useContext,*/ useRef } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../Context/UserContext";
+// import { UserContext } from "../../Context/UserContext";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -17,7 +18,7 @@ const theme = createTheme();
 
 export default function SignUp(props) {
 	const [validation, setValidation] = useState("");
-	const { signup } = useContext(UserContext);
+	// const { signup } = useContext(UserContext);
 	const formRef = useRef();
 	const navigate = useNavigate();
 	// console.log(signup);
@@ -40,7 +41,25 @@ export default function SignUp(props) {
 		}
 
 		try {
-			await signup(data.get("email"), data.get("password"));
+			//await signup(data.get("email"), data.get("password"));
+			const user = JSON.stringify({
+				pseudo: "Abou",
+				email: data.get("email"),
+				password: data.get("password"),
+			});
+
+			const res = await axios.post(
+				"http://192.168.64.214:3000/api/users",
+				user,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			const token = res.data.data;
+			console.log(token);
+
 			setValidation("Inscription réussie !");
 			formRef.current.reset();
 			navigate("/private/dashboard");

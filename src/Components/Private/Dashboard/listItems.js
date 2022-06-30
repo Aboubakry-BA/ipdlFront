@@ -4,41 +4,50 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import ListSubheader from "@mui/material/ListSubheader";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PeopleIcon from "@mui/icons-material/People";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import LayersIcon from "@mui/icons-material/Layers";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 export const mainListItems = (
 	<React.Fragment>
-		<ListItemButton></ListItemButton>
-		<Divider />
-		<ListSubheader component="div" inset>
-			Saved reports
-		</ListSubheader>
+		<ListSubheader component="div">Principal</ListSubheader>
 		<ListItemButton>
 			<ListItemIcon>
-				<ShoppingCartIcon />
+				<DashboardIcon />
 			</ListItemIcon>
 			<ListItemText primary="Tableau de bord" />
 		</ListItemButton>
+		<Divider />
+		<ListSubheader component="div">Vos Annonces</ListSubheader>
 		<ListItemButton>
 			<ListItemIcon>
-				<PeopleIcon />
+				<CampaignIcon />
 			</ListItemIcon>
 			<ListItemText primary="Annonces" />
 		</ListItemButton>
 		<ListItemButton>
 			<ListItemIcon>
-				<BarChartIcon />
+				<FavoriteBorderIcon />
+			</ListItemIcon>
+			<ListItemText primary="Annonces favorites" />
+		</ListItemButton>
+		<Divider />
+		<ListSubheader component="div">Feedbacks</ListSubheader>
+		<ListItemButton>
+			<ListItemIcon>
+				<StarBorderIcon />
 			</ListItemIcon>
 			<ListItemText primary="Avis" />
 		</ListItemButton>
+		<Divider />
+		<ListSubheader component="div">Transactions</ListSubheader>
 		<ListItemButton>
 			<ListItemIcon>
-				<LayersIcon />
+				<LibraryBooksIcon />
 			</ListItemIcon>
-			<ListItemText primary="Transactions" />
+			<ListItemText primary="Factures" />
 		</ListItemButton>
 	</React.Fragment>
 );

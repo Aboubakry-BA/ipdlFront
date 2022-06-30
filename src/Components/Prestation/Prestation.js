@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { useParams } from "react-router-dom";
 
-function Service() {
+function Prestation() {
 	const params = useParams();
 
 	return (
@@ -15,4 +15,4 @@ function Service() {
 	);
 }
 
-export default Service;
+export default Prestation;

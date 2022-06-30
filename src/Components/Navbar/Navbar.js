@@ -9,7 +9,7 @@ import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
+import AddCardIcon from "@mui/icons-material/AddCard";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Dialog from "@mui/material/Dialog";
@@ -71,7 +71,7 @@ function Navbar() {
 					textTransform: "initial",
 					fontFamily: "Montserrat, sans-serif",
 				}}
-				startIcon={<AddIcon />}
+				startIcon={<AddCardIcon />}
 			>
 				Publier une annonce
 			</Button>
@@ -82,7 +82,7 @@ function Navbar() {
 				onClick={() => navigate("/private/dashboard")}
 				style={{ background: "#00A591", color: "#fff" }}
 			>
-				<AddIcon />
+				<AddCardIcon />
 			</IconButton>
 		);
 	} else {
@@ -106,7 +106,7 @@ function Navbar() {
 					textTransform: "initial",
 					fontFamily: "Montserrat, sans-serif",
 				}}
-				startIcon={<AddIcon />}
+				startIcon={<AddCardIcon />}
 			>
 				Publier une annonce
 			</Button>
@@ -117,7 +117,7 @@ function Navbar() {
 				onClick={handleClickOpen}
 				style={{ background: "#00A591", color: "#fff" }}
 			>
-				<AddIcon />
+				<AddCardIcon />
 			</IconButton>
 		);
 	}
@@ -167,9 +167,7 @@ function Navbar() {
 			<div id="connexion">
 				{toggleButton}
 				<div id="add1">{publierAnnonce}</div>
-				<div id="add2">
-					{publierAnnonce2}
-				</div>
+				<div id="add2">{publierAnnonce2}</div>
 			</div>
 			<Dialog
 				open={open}
